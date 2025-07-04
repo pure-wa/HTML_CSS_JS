@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML CSS JS BASIC</title>
+    <!-- 외부스타일 import시에 link태그 사용 -->
+    <link rel="stylesheet" href="css/mystyle.css">
+    <style>
+        /* style적용 대체적으로 구체적인 요소가 우선됨 */
+        /* 쿨래스선택 */
+        .c1{
+            color: blue;
+        }
+        .c2{
+            text-decoration: underline;
+        }
+        /* 태그선택 */
+        p{
+            color: grey; text-align: center;
+        }
+        /* ID선택 */
+        #i1{
+            color: red;
+        }
+        /* 자식 선택자 */
+        div > h2{
+            color: green;
+        }
+    </style>
+    <script>
+        document.getElementById("load1").innerHTML="change1"
+        function updateF1(){
+        document.getElementById("f1").innerHTML="change1"
+        }
+        function rollbackF1(){
+        document.getElementById("f1").innerHTML="내용 1변경"
+        }
+        
+    </script>
+</head>
+<body>
+    <!-- 글자색상 : green , 글자 가운데 정렬 -->
+     <!-- 인라인 스타일 : 태그내에서 style옵션 사용 -->
+     <p style="color: green; font-size: 25px; text-align: center;">인라인 스타일 적용</p>
+
+     <!-- 내부 스타일 적용 : 태그 선택자 ,클래스 선택자 ,ID선택자-->
+      <p>태그선택자 스타일 적용</p>
+      <p class="c1">클래스 선택자 적용</p>
+      <p class="c1">클래스 선택자 적용</p>
+      <!-- 클래스 중첩 적용 -->
+      <p class="c1 c2">클래스 선택자 적용</p>
+      <p id="i1">ID선택자 적용</p>
+
+      <!-- 외부스타일 -->
+       <p id="external">외부스타일적용</p>
+
+       <!-- 자식선택자 -->
+        <div>
+            <h2>자식선택자 예시</h2>
+        </div>
+        <h2>자식선택자 예시</h2>
+
+        <h2>javascript 예시</h2>
+        <!-- js적용방법 2가지 : 내부 스크립트(head, body) -->
+
+        <!-- html문서는 상단의 head부터 순차적으로 실행되기 떄문에, 순서 따라 반영이 안될수 있음. -->
+        <p id="load1">js 로드 순서1</p>
+        <p id="load2">js 로드 순서2</p>
+
+        <p id="f1">변경될 내용1</p>
+        <!-- onclick : 버튼을 클릭하면, updateF1 -->
+        <button onclick="updateF1()"> 내용 1 변경</button>
+        <button onclick="rollbackF1()"> 내용 1 되돌리기</button>
+        <p id="f2">변경될 내용2</p>
+        <button onclick="updateF2()"> 내용 2 변경 </button>
+        <button onclick="rollbackF2()"> 내용 2 되돌리기 </button>
+        <script src="js/myjs.js"></script>
+
+        <script>
+            document.getElementById("load2").innerHTML="change2";
+            function updateF2(){
+                document.getElementById("f2").innerHTML="change2";
+            }
+            function rollbackF2(){
+                document.getElementById("f2").innerHTML="내용2 변경";
+        }
+        </script>
+</body>
+</html>
