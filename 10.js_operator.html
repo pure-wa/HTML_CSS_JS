@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>짜스 오퍼레이터</title>
+</head>
+<script>
+    function bigggerNum(a,b){
+        const bigger = a > b ? a: b ;
+        document.getElementById("result").innerHTML = bigger;
+    }
+    function stringCompare(){
+        const x = 'abc';
+        const y = 'bcd';
+        console.log(x<y);
+    }
+</script>
+<body>
+    <h2>연산자 예시</h2>
+    <button onclick="bigggerNum(3,4)">삼향연산자 결과</button>
+    <p id="result">결과값</p>
+    
+    <button onclick="stringCompare()">문자비교 결과</button>
+
+    <h2>void 연산자 활용</h2>
+    <!-- <a href="" onclick="alert('hello world')">클릭1</a> -->
+     <!-- a태그에서 href는 link연결시 사용하는데, 아무런 동작도 하지 않게 하기 위해서 void를 사용 -->
+    <a href="javascript:void(0)">클릭1</a>
+</body>
+</html>

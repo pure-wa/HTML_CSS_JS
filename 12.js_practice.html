@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+</head>
+<body>
+    <select id="calculator">
+        <option value="plus">덧셈</option>
+        <option value="minus">뺄셈</option>
+        <option value="mulitply">곱셈</option>
+        <option value="divide">나눗셈</option>
+    </select>
+    <input type="number" id="input1">
+    <input type="number" id="input2">
+    <button onclick="caculator()">연산실행</button>
+    <p id= "result">결과값</p>
+    <script>
+        function caculator(){
+            const cal =document.getElementById("calculator").value;
+            const i1 =document.getElementById("input1").value;
+            const i2 =document.getElementById("input2").value;
+            let result = 0;
+            if(cal=== "plus"){
+                result = i1+i2;
+            }else if(cal === "minus"){
+                result = i1-i2;
+            }else if(cal === "mulitply"){
+                result = i1*i2;
+            }else if(cal === "divide"){
+                result = i1/i2;
+            }
+
+        }
+    </script>
+    
+</body>
+</html>
