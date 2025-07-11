@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 목록</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
+        <a href="" class="navbar-brand mx-auto">게시판 서비스</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="./author_list.html" class="nav-link">회원 목록</a>
+            </li>
+            <li class="nav-item">
+                <a href="../post/post_list.html" class="nav-link">게시글 목록</a>
+            </li>
+            <li class="nav-item">
+                <a href="./author_register.html" class="nav-link">회원가입</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h3>회원 가입</h3>
+        <form>
+            <div class="form-group">
+                <label for="name">이름 </label>
+                <input type="text" id="name" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">이메일 </label>
+                <input type="email" id="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">비밀번호 </label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password_check">비밀번호 확인 </label>
+                <input type="password" id="password_check" name="password_check" class="form-control">
+            </div>
+            <div class="mt-3"><button type="button" onclick="author_register()" class="btn btn-primary float-end">회원가입</button></div>
+        </form>
+    </div>
+    <script>
+        async function author_register(){
+            
+            try{
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const password_check = document.getElementById("password_check").value;
+                
+                // 기본 유효성 검사
+                if(!name || !email || !password){
+                    alert("이름, 이메일, 비밀번호는 필수 입력 항목입니다.");
+                    return;
+                }
+                if(password !== password_check){
+                    alert("비밀번호가 일치하지 않습니다.");
+                    return;
+                }
+                const obj = {name, email, password};
+
+                await axios.post("http://localhost:8080/author/register1", obj);
+                window.location.href = "./author_list.html";
+            }catch(e){
+                console.log(e);
+                alert("에러가 발생했습니다.");
+            }
+        }
+    </script>
+</body>
+
+</html>
